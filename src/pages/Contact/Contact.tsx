@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/IsDark/IsDark";
 import { ItemContextProvider } from "../../utils/contact/ContactItemProvider";
 import useFilteredMember from "../../hooks/api/member/useFilteredMember";
+import { ID } from "../../constants/id";
 
 function Contact() {
   const [selectedToggle, setSelectedToggle] = useState("all");
@@ -23,7 +24,7 @@ function Contact() {
       <ItemContextProvider>
         <Styled.Items>
           {data
-            .filter((item) => +item.id !== 2)
+            .filter((item) => +item.id !== ID.ADMIN)
             ?.map((item) => (
               <Item
                 key={item.id}
